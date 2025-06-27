@@ -1,0 +1,139 @@
+:root {
+    --color-correct: #0AA78A;
+    --color-mayCorrect: #FF9E0C;
+    --color-btn: #E54A2D;
+}
+
+.roboto-regular {
+    font-weight: 400;
+}
+
+.roboto-medium {
+    font-weight: 500;
+}
+
+.roboto-bold {
+    font-weight: 700;
+}
+
+.roboto-semibold {
+    font-weight: 600;
+}
+
+
+body {
+    height: 100vh;
+
+}
+
+
+h1 {
+    height: fit-content;
+}
+
+/* @media (max-width: 576px) {
+    .main {
+        flex-direction: column;
+
+    }
+} */
+
+/* inputs */
+.main__inputs>div {
+    max-width: 100%;
+
+}
+
+.main__inputs span {
+    /* font-size: 1.5em; */
+}
+
+input[type="text"] {
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    /* font-size: 3em; */
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 3px solid black;
+}
+
+input[type="text"].yes-in-place {
+    background-color: var(--color-correct);
+    color: white;
+}
+
+input[type="text"].not-in-place {
+    background-color: var(--color-mayCorrect);
+    color: white;
+}
+
+input[type="text"].no {
+    background-color: black;
+    color: white;
+}
+
+input:focus {
+    outline-color: #ccc;
+}
+
+.disabled-try {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+/* buttons */
+.main__buttons :is(.buttons__check, .buttons__hint) {
+    color: white;
+    /* font-size: larger; */
+}
+
+.buttons__check {
+    background-color: var(--color-btn);
+    width: 75%;
+    max-width: 75%;
+}
+
+.buttons__hint {
+    background-color: var(--color-correct);
+    width: 25%;
+    max-width: 25%;
+}
+
+:is(.buttons__check, .buttons__hint).btn--disabled {
+    background-color: gray;
+    color: white;
+    pointer-events: none;
+}
+
+/* message */
+.message {
+    text-align: center;
+    font-weight: bold;
+    /* font-size: 30px; */
+
+    span {
+        display: block;
+        /* font-size: 50px; */
+        color: black;
+        text-transform: capitalize;
+    }
+
+}
+
+/* Instructions */
+.box__color {
+    width: 1.5rem;
+    border-radius: 2px;
+
+}
+
+.box__color--orange {
+    background-color: var(--color-mayCorrect);
+
+}
+
+.box__color--green {
+    background-color: var(--color-correct);
+}
