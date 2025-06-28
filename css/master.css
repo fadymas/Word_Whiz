@@ -1,139 +1,270 @@
-:root {
-    --color-correct: #0AA78A;
-    --color-mayCorrect: #FF9E0C;
-    --color-btn: #E54A2D;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
 
-.roboto-regular {
-    font-weight: 400;
-}
+    :root {
+        --color-correct: #0AA78A;
+        --color-mayCorrect: #FF9E0C;
+        --color-btn: #E54A2D;
+        --color-no: #6B7280;
+        --gradient-btn: linear-gradient(225deg, #667EEA 14.64%, #764BA2 85.36%);
+    }
 
-.roboto-medium {
-    font-weight: 500;
-}
+    .roboto-regular {
+        font-weight: 400;
+    }
 
-.roboto-bold {
-    font-weight: 700;
-}
+    .roboto-medium {
+        font-weight: 500;
+    }
 
-.roboto-semibold {
-    font-weight: 600;
-}
+    .roboto-bold {
+        font-weight: 700;
+    }
+
+    .roboto-semibold {
+        font-weight: 600;
+    }
+
+    @media (min-width: 576px) {
+        html {
+            font-size: 1.2rem;
+        }
+
+    }
+
+    @media (min-width: 768px) {
+        html {
+            font-size: 1.2rem;
+        }
+
+        /* input[type="text"] {
+            width: 3rem !important;
+            height: 3rem !important;
+        } */
+    }
+
+    @media (min-width: 992px) {
+        html {
+            font-size: 1.5rem;
+        }
+
+        .main__game {
+            width: 60%;
+        }
+
+        .main__instructions {
+            width: 38%;
 
 
-body {
-    height: 100vh;
-
-}
 
 
-h1 {
-    height: fit-content;
-}
+        }
 
-/* @media (max-width: 576px) {
-    .main {
+        .instructions__paragraph {
+            font-size: 0.7rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        html {
+            font-size: 1.6rem;
+
+            .message {
+                font-size: 1rem;
+            }
+
+        }
+
+        .instructions__paragraph {
+            font-size: 2rem;
+        }
+
+    }
+
+    /* 
+    @media (min-width: 1400px) {
+        html {
+            font-size: 1.7rem;
+        }
+    } */
+
+    body {
+        height: 100vh;
+        background: linear-gradient(to right,
+                #764BA2, #667EEA) center;
+        background-size: cover;
+        align-content: center;
+
+    }
+
+
+
+
+    h1 {
+        height: fit-content;
+        width: 100%;
+        margin: 0;
+
+
+    }
+
+
+
+    /* inputs */
+
+    input[type="text"] {
+        width: 2.5rem;
+        height: 2.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 0.75rem;
+        background: #d3d4d8;
+        transition: 2ms all;
+    }
+
+
+
+    input[type="text"]:focus-visible {
+        outline: 1px #ccc solid;
+        border: none;
+
+    }
+
+    input[type="text"].yes-in-place {
+        background-color: var(--color-correct);
+        color: white;
+    }
+
+    input[type="text"].not-in-place {
+        background-color: var(--color-mayCorrect);
+        color: white;
+    }
+
+    input[type="text"].no {
+        background-color: var(--color-no);
+        color: white;
+    }
+
+    input:focus {
+        outline-color: #ccc;
+
+    }
+
+    .disabled-try {
+        pointer-events: none;
+        opacity: 0.8;
+    }
+
+    /* message */
+    .message {
+        font-size: 1.5rem;
+    }
+
+
+    /* buttons */
+    .main__buttons :is(.buttons__check, .buttons__hint) {
+        color: white;
+        transition: 300ms all;
+        border-radius: 1rem;
+    }
+
+    .main__buttons .buttons__check:hover {
+        opacity: 0.7;
+        background-color: var(--color-btn);
+    }
+
+    .main__buttons .buttons__check:is(:active, :focus-visible) {
+        background-color: var(--gradient-btn);
+        color: white;
+        border: none;
+        outline: var(--gradient-btn) solid 1px;
+
+        ;
+    }
+
+
+    .buttons__check {
+        width: 60%;
+        height: 3rem;
+        max-width: 75%;
+        background: var(--gradient-btn);
+        box-shadow: 0px 4px 16px 0px rgba(102, 126, 234, 0.19);
+    }
+
+    .buttons__hint {
+        background-color: var(--color-correct);
+        width: 40%;
+        height: 3rem;
+        background: var(--color-correct);
+        box-shadow: 0px 4px 16px 0px rgba(16, 185, 129, 0.19);
+        /* max-width: 25%; */
+    }
+
+    .main__buttons .buttons__hint:hover {
+        opacity: 0.7;
+        background-color: var(--color-correct);
+    }
+
+    .main__buttons .buttons__hint:is(:active, :focus-visible) {
+        background-color: var(--color-correct);
+        color: white;
+        border: none;
+        outline: #10ffd3 1px solid;
+    }
+
+    :is(.buttons__check, .buttons__hint).btn--disabled {
+        background-color: gray;
+        color: white;
+        pointer-events: none;
+    }
+
+    /* message */
+    .message {
+        text-align: center;
+        font-weight: bold;
+        /* font-size: 30px; */
+
+        span {
+            display: block;
+            /* font-size: 50px; */
+            color: black;
+            text-transform: capitalize;
+        }
+
+    }
+
+    /* Instructions */
+    .instructions__paragraph {
+        font-size: 0.875rem;
+        flex-shrink: 1;
+    }
+
+    .box__color {
+        display: flex;
+        min-width: 1.5rem;
+        min-height: 1.5rem;
         flex-direction: column;
+        align-items: flex-start;
+        border-radius: 0.375rem;
+
 
     }
-} */
 
-/* inputs */
-.main__inputs>div {
-    max-width: 100%;
+    .box__color--orange {
+        background-color: var(--color-mayCorrect);
 
-}
-
-.main__inputs span {
-    /* font-size: 1.5em; */
-}
-
-input[type="text"] {
-    width: 2.5rem;
-    height: 2.5rem;
-    text-align: center;
-    /* font-size: 3em; */
-    text-transform: uppercase;
-    border: none;
-    border-bottom: 3px solid black;
-}
-
-input[type="text"].yes-in-place {
-    background-color: var(--color-correct);
-    color: white;
-}
-
-input[type="text"].not-in-place {
-    background-color: var(--color-mayCorrect);
-    color: white;
-}
-
-input[type="text"].no {
-    background-color: black;
-    color: white;
-}
-
-input:focus {
-    outline-color: #ccc;
-}
-
-.disabled-try {
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-
-/* buttons */
-.main__buttons :is(.buttons__check, .buttons__hint) {
-    color: white;
-    /* font-size: larger; */
-}
-
-.buttons__check {
-    background-color: var(--color-btn);
-    width: 75%;
-    max-width: 75%;
-}
-
-.buttons__hint {
-    background-color: var(--color-correct);
-    width: 25%;
-    max-width: 25%;
-}
-
-:is(.buttons__check, .buttons__hint).btn--disabled {
-    background-color: gray;
-    color: white;
-    pointer-events: none;
-}
-
-/* message */
-.message {
-    text-align: center;
-    font-weight: bold;
-    /* font-size: 30px; */
-
-    span {
-        display: block;
-        /* font-size: 50px; */
-        color: black;
-        text-transform: capitalize;
     }
 
-}
+    .box__color--green {
+        background-color: var(--color-correct);
+    }
 
-/* Instructions */
-.box__color {
-    width: 1.5rem;
-    border-radius: 2px;
-
-}
-
-.box__color--orange {
-    background-color: var(--color-mayCorrect);
-
-}
-
-.box__color--green {
-    background-color: var(--color-correct);
-}
+    .box__color--no {
+        background-color: var(--color-no);
+    }

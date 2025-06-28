@@ -27,13 +27,9 @@ async function fetchRandomWord() {
 function generateTries() {
     for (let i = 1; i <= NUMBER_OF_TRIES; i++) {
         const tryRow = document.createElement("div");
-        tryRow.classList.add(`try-${i}`, "d-flex", "justify-content-between", "align-items-center", "mb-2");
+        tryRow.classList.add(`try-${i}`, "d-flex", "justify-content-around", "align-items-center", "mb-2");
         if (i !== 1) tryRow.classList.add("disabled-try");
 
-        const label = document.createElement("span");
-        label.classList.add("roboto-bold");
-        label.textContent = `Try ${i}`;
-        tryRow.appendChild(label);
 
         generateLetterInputs(tryRow, i);
         inputsContainer.appendChild(tryRow);
@@ -50,7 +46,7 @@ function generateLetterInputs(container, tryNumber) {
         input.type = "text";
         input.maxLength = 1;
         input.id = `guess-${tryNumber}-letter-${j}`;
-        input.classList.add("roboto-medium", "rounded-1");
+        input.classList.add("roboto-medium");
 
         if (tryNumber !== 1) input.disabled = true;
 
@@ -153,7 +149,10 @@ function showEndMessage(text, color) {
     message.innerHTML = `${text}<span>${targetWord}</span>`;
     message.firstElementChild.style.color = color;
     checkButton.classList.add("btn--disabled");
+    hintButton.classList.add("btn--disabled");
     checkButton.disabled = true;
+    hintButton.disabled = true;
+
 }
 
 
@@ -234,7 +233,6 @@ function putHint() {
 // === 9. Initialize the game on window load ===
 window.onload = async () => {
     targetWord = await fetchRandomWord();
-    console.log(targetWord)
     if (!targetWord) return;
 
     generateTries();
