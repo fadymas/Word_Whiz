@@ -101,7 +101,65 @@
 
     }
 
+    .dotted-loader {
+        width: 6.25rem;
+        height: 6.25rem;
+        border-width: 0.25rem;
+        border-color: white;
+        border-style: solid;
+        border-bottom: none;
+        border-left: none;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: rotate-right 1.5s linear infinite;
+    }
 
+    .dotted-loader::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-width: 0.25rem;
+        border-color: white;
+        border-style: solid;
+        border-right: none;
+        border-top: none;
+        border-radius: 50%;
+        width: 4.375rem;
+        height: 4.375rem;
+        animation: rotate-left 0.75s linear infinite;
+    }
+
+    @keyframes rotate-right {
+        from {
+            transform: translate(-50%, -50%) rotate(0);
+        }
+
+        to {
+
+            transform: translate(-50%, -50%) rotate(1turn);
+        }
+    }
+
+    @keyframes rotate-left {
+        from {
+            transform: translate(-50%, -50%) rotate(0);
+        }
+
+        to {
+
+            transform: translate(-50%, -50%) rotate(-1turn);
+        }
+    }
+
+
+    main {
+        display: none;
+    }
 
 
     h1 {

@@ -260,12 +260,19 @@ function soundTrack(name) {
     sound.play();
 }
 
+function loading() {
+    const loading = document.getElementById("loading")
+    const main = document.getElementsByClassName("main")[0];
+    loading.style.display = "none"
+    main.style.display = "flex"
+}
+
 
 // === 10. Initialize the game on window load ===
 window.onload = async () => {
     targetWord = await fetchRandomWord();
     if (!targetWord) return;
-
+    loading();
     generateTries();
     checkButton.addEventListener("click", handleCheck);
     hintButton.querySelector("span").innerText = hintCount;
