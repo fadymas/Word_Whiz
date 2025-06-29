@@ -53,6 +53,7 @@ function generateLetterInputs(container, tryNumber) {
         // Handle input: auto uppercase and move to next
         input.addEventListener("input", (e) => {
             if (!e.data) return;
+            soundTrack("input");
             input.value = input.value.toUpperCase();
             if (input.nextElementSibling) input.nextElementSibling.focus();
 
@@ -159,6 +160,7 @@ function showEndMessage(text, color) {
 
 // === 7. Handle the check button click ===
 function handleCheck() {
+    soundTrack("click")
     const currentInputs = Array.from({ length: NUMBER_OF_LETTERS }, (_, i) =>
         document.querySelector(`#guess-${currentTry}-letter-${i}`).value.toUpperCase()
     );
@@ -176,11 +178,13 @@ function handleCheck() {
     toggleTryInputs(currentTry, false); // Lock current try
 
     if (isSuccess) {
+        soundTrack("win")
         showEndMessage("You Win The Word Is", "var(--color-correct)");
         return;
     }
 
     if (currentTry === NUMBER_OF_TRIES) {
+        soundTrack("lose")
         showEndMessage("You Lose The Word Is", "var(--color-btn)");
         return;
     }
@@ -193,6 +197,7 @@ function handleCheck() {
 
 // === 8. Handle the hint button click ===
 function getHint() {
+    soundTrack("hint");
     if (hintCount > 0) {
         putHint();
     }
@@ -231,6 +236,32 @@ function putHint() {
 }
 
 // === 9. Initialize the game on window load ===
+function soundTrack(name) {
+    let sound;
+    switch (name) {
+        case "win":
+            sound = document.getElementById("audio-win")
+            break;
+        case "lose":
+            sound = document.getElementById("audio-lose")
+            break;
+        case "click":
+            sound = document.getElementById("audio-click")
+            break;
+        case "hint":
+            sound = document.getElementById("audio-hint")
+            break;
+        case "input":
+            sound = document.getElementById("audio-input")
+            break;
+
+    }
+    sound.currentTime = 0;
+    sound.play();
+}
+
+
+// === 10. Initialize the game on window load ===
 window.onload = async () => {
     targetWord = await fetchRandomWord();
     if (!targetWord) return;

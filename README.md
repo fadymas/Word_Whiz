@@ -4,13 +4,14 @@
 
 ## 🖼️ Demo
 
-![Word Whiz Screenshot](assets/imgs/screenshot.png)
+![Word Whiz Pc Version](assets/imgs/pc.png)
+![Word Whiz Mobile Version](assets/imgs/mobile.png)
 
 ---
 
 ## 📌 Features
 
-- 🔠 Auto-uppercase letter inputs.  
+- 🔠 Auto-uppercase letter inputs.
 - ✅ Real-time validation and feedback:
   - 🟩 Green: correct letter and correct position.
   - 🟧 Orange: correct letter but wrong position.
@@ -24,10 +25,10 @@
 
 ## 🚀 Technologies Used
 
-- HTML5  
-- CSS3 (custom + Bootstrap 5.3.7)  
-- JavaScript (ES6+)  
-- Google Fonts (Roboto)  
+- HTML5
+- CSS3 (custom + Bootstrap 5.3.7)
+- JavaScript (ES6+)
+- Google Fonts (Roboto)
 - [Random Word API](https://random-word-api.vercel.app/)
 
 ---
