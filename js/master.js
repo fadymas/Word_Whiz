@@ -54,7 +54,7 @@ function generateLetterInputs(container, tryNumber) {
         input.addEventListener("input", (e) => {
             if (!e.data) return;
             soundTrack("input");
-            input.value = input.value = input.value.toUpperCase().slice(0, 1);
+            input.value = input.value.toUpperCase().slice(0, 1);
             if (input.nextElementSibling) input.nextElementSibling.focus();
 
         });
